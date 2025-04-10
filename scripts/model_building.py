@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 def main():
@@ -30,6 +31,8 @@ def model(
     # print("Testing Accuracy: ", dtree.score(X_test, y_test))
 
     ## Initialize the Random Forest Classifier model
+    rfc = RandomForestClassifier()
+    rfc.fit(X_train, y_train)
 
 
 if __name__ == "__main__":
