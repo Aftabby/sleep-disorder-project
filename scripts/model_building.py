@@ -27,12 +27,18 @@ def model(
     dtree.fit(X_train, y_train)
 
     # Evaluate Decision Tree Classifier  model - Training and Testing Accuracy - Comment later
-    # print("Training Accuracy: ", dtree.score(X_train, y_train))
-    # print("Testing Accuracy: ", dtree.score(X_test, y_test))
+    print("Training Accuracy: ", dtree.score(X_train, y_train))
+    print("Testing Accuracy: ", dtree.score(X_test, y_test))
 
     ## Initialize the Random Forest Classifier model
     rfc = RandomForestClassifier()
     rfc.fit(X_train, y_train)
+
+    # Evaluate Random Forest Classifier  model - Training and Testing Accuracy - Comment later
+    print("Training Accuracy: ", rfc.score(X_train, y_train))
+    print("Testing Accuracy: ", rfc.score(X_test, y_test))
+
+    return dtree, rfc
 
 
 if __name__ == "__main__":
