@@ -5,9 +5,20 @@ def main():
     pass
 
 
-def clean(path="../data/sleep_dataset.csv", out_path="../data/processed/"):
+def clean(path="../data/raw/sleep_dataset.csv", out_path="../data/processed/"):
+    """
+    Cleans the raw sleep dataset and saves the processed dataset.
+
+    Args:
+        path (str, optional): Input path to raw sleep_dataset. Defaults to "../data/raw/sleep_dataset.csv".
+        out_path (str, optional): Output path to save cleaned sleep_dataset. Defaults to "../data/processed/".
+
+    Returns:
+        pd.DataFrame: The cleaned DataFrame.
+    """
+
     # Load the dataset
-    df = pd.read_csv("../data/sleep_dataset.csv")
+    df = pd.read_csv(path)
 
     # Drop unnecessary columns
     df.drop("Person ID", axis=1, inplace=True)
