@@ -8,6 +8,7 @@ def main():
     model()
 
 
+# & Building the models and check for accuracy scores
 def model(
     path="../data/processed/preprocessed_sleep_dataset.csv", model_path="../models/"
 ):

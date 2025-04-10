@@ -8,12 +8,14 @@ def main():
     pipeline()
 
 
+# & Run all the scripts and save/output necessary files
 def pipeline(app_path="../app/static/data/"):
     cleaned_df = clean()
     processed_df = preprocess()
     dtree_model, rfc_model = model()
 
     # Save clean data in app folder for flask
+    cleaned_df = cleaned_df.head(10)
     cleaned_df.to_csv(app_path + "cleaned_sleep_dataset.csv", index=False)
 
     # Add column for each model in preprocessed dataframme with predicted output
