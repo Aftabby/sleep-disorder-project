@@ -18,7 +18,7 @@ Also:
 -->
 
 {% extends "layout.html" %}
-{% comment %} {% extends "shared_layout1.html" %} {% endcomment %}
+{#% extends "shared_layout1.html" %#}
 
 {% block title %}
     Project - Aftabby
@@ -30,6 +30,7 @@ Also:
 {% endblock %}
 
 {% block section %}
+
 <section id="introduction">
     <h2>1. Introduction</h2>
     <div>
@@ -65,7 +66,7 @@ Also:
         <p>
             Below is a sample preview of the dataset:
         </p>
-        <div class="table-container code-block">
+        <div class="table-container">
             {{ context.sample_table | safe }}
         </div>
         
@@ -103,6 +104,9 @@ Also:
 <section id="eda">
     <h2>4. Exploratory Data Analysis (EDA)</h2>
     <h4>Key Insight 1: Understanding the data by plotting its variables</h4>
+    <div class="graph-container">
+        <div id="graph1" class="grid-plot"></div>
+    </div>
     <p>The number of males and females is almost equal, out of which majority of the people
         have age between 30-45 years. Most of the people have sleep quality greater than 5 which means
         there are getting sufficient sleep. Moreover, most of the people have normal
@@ -110,23 +114,23 @@ Also:
         with the distribution of sleep disorder which shows equal number of people 
         with and without sleep disorder.
     </p>
-    <div class="graph-container">
-        <div id="graph1" class="plot"></div>
-        <div id="graph2" class="plot"></div>
-    </div>
+
     <h4>Key Insight 2: Understanding the correlation between individual variables</h4>
-    <div>
-    <p> GENDER VS SLEEP DISORDER: Most of the males and females are not suffering from any sleep disorder. 
+
+    <div class="graph-container">
+        <div id="graph2" class="plot1"></div>
+    </div>
+    <p> <strong>Gender vs Sleep Disorder:</strong> Most of the males and females are not suffering from any sleep disorder. 
         However females tend to have more sleep disorder as compared to males. 
         The number of females suffering from Sleep Apnea is quite high as compared to males. 
         But in contrast to that, 
         greater number of males are suffering from Insomia as compared to females.
     </p>
+
     <div class="graph-container">
-        <div id="graph1" class="plot"></div>
-        <div id="graph2" class="plot"></div>
+        <div id="graph3" class="plot1"></div>
     </div>
-    <p>Effect of Occupation on Sleep Disorder: From the graph it is clear that the occupation 
+    <p><strong>Effect of Occupation on Sleep Disorder:</strong> From the graph it is clear that the occupation 
         has huge impact on the sleep disorder. Nurses are more subjected to have Sleep Apenea 
         as compared to other occupations and very few of them have no sleep disorder. 
         After nurses, the next most affected occupation is the Salesperson, which counts for 
@@ -137,18 +141,12 @@ Also:
         Representative has shown only Sleep Apenea and no Insomia or No sleep disorder.
     </p>
     <div class="graph-container">
-        <div id="graph1" class="plot"></div>
-        <div id="graph2" class="plot"></div>
+        <div id="graph4" class="plot1"></div>
     </div>
-    <p>BMI and Sleep Disorder: People with normal BMI are less likely to suffer from any sleep disorder. 
+    <p><strong>BMI and Sleep Disorder:</strong> People with normal BMI are less likely to suffer from any sleep disorder. 
         However, this is opposite in case of Overweight and Obese people. 
         Overweight are more likely to suffer more from sleep disordera than Obese people.
     </p>
-    <div class="graph-container">
-        <div id="graph1" class="plot"></div>
-        <div id="graph2" class="plot"></div>
-    </div>
-</div>
 
 </section>
 
@@ -174,10 +172,10 @@ Also:
     <p>Below is a comparison of the two models:</p>
 
     <div class="graph-container">
-        <div id="graph3" class="model-plot"></div>
+        <div id="graph5" class="plot1"></div>
     </div>
     <div class="graph-container">
-        <div id="graph3" class="model-plot"></div>
+        <div id="graph6" class="plot1"></div>
     </div>
 
 </section>
@@ -185,13 +183,16 @@ Also:
 <section id="conclusion" class="mb-5">
     <h2>7. Conclusion</h2>
     <p>From the exploratory data analysis, I have concluded that the sleep orders depends upon 
-        three main factors that are gender, occupation and BMI of the patient.
-        <br>
+        three main factors of the patient, that are:
+        <ul>
+            <li>Gender</li>
+            <li>Occupation</li>
+            <li>BMI</li>
+        </ul>
          The males have more instance of Insomia whereas femlaes have more instances of Sleep Apnea. 
          In addition the that people with occupation such as nurses are more prone to sleep disorders.
-         <br> 
          The BMI of the patient also plays a vital role in the prediction of sleep disorders. 
-        The patients who are either Obese or overweight are more prone to sleep disorders </p>
+        The patients who are either Obese or overweight are more prone to sleep disorders. </p>
 
 </section>
 

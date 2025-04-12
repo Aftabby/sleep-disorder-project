@@ -9,22 +9,19 @@ This project focuses on predicting sleep disorders such as Insomnia and Sleep Ap
 - **Data Insights**: Analyze key factors such as BMI, gender, and occupation influencing sleep disorders.
 
 ## Folder Structure
-- **app/**: Contains the main application files.
-  - **templates/**: HTML templates for rendering the web pages.
-  - **static/**: Static assets such as CSS, JavaScript, and images.
-    - **css/**: Stylesheets for the web application.
-    - **js/**: JavaScript files for interactive elements and visualizations.
-  - **app.py**: The main Flask application file.
-  - **utils.py**: Helper functions for data loading and graph generation.
-- **data/**: Contains raw and processed datasets.
-  - **raw/**: Original datasets.
-  - **processed/**: Cleaned and preprocessed datasets.
+- **templates/**: Contains HTML templates for rendering the web pages.
+- **static/**: Contains static assets such as CSS, JavaScript, and images.
+  - **css/**: Stylesheets for the web application.
+  - **js/**: JavaScript files for interactive elements and visualizations.
+  - **mediaqueries.css**: Responsive design adjustments.
+- **app.py**: The main Flask application file.
+- **utils.py**: Helper functions for data loading and graph generation.
 
 ## Usage
 To run the web application locally:
-1. Navigate to the project directory:
+1. Navigate to the `app` folder:
    ```bash
-   cd sleep-disorder-project\app
+   cd app
    ```
 2. Start the Flask application:
    ```bash
@@ -42,4 +39,4 @@ To run the web application locally:
 - **Aftabby** - [GitHub Profile](https://github.com/Aftabby)
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
