@@ -5,6 +5,7 @@ def main():
     pass
 
 
+# & Cleaning the raw data
 def clean(path="../data/raw/sleep_dataset.csv", out_path="../data/processed/"):
     """
     Cleans the raw sleep dataset and saves the processed dataset.

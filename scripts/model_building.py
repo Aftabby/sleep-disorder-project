@@ -8,6 +8,7 @@ def main():
     model()
 
 
+# & Building the models and check for accuracy scores
 def model(
     path="../data/processed/preprocessed_sleep_dataset.csv", model_path="../models/"
 ):
@@ -38,7 +39,13 @@ def model(
     print("Training Accuracy: ", rfc.score(X_train, y_train))
     print("Testing Accuracy: ", rfc.score(X_test, y_test))
 
-    return dtree, rfc
+    # Add predictions from the Decision Tree and Random Forest models
+    # Also, include the actual target values (y_test) for comparison in webapp. And pass it then to the pipeline
+    compare_df = pd.DataFrame({"Decision Tree Prediction": dtree.predict(X_test)})
+    compare_df["Random Forest Prediction"] = rfc.predict(X_test)
+    compare_df["Sleep Disorder"] = y_test.reset_index(drop=True)
+
+    return dtree, rfc, compare_df
 
 
 if __name__ == "__main__":
