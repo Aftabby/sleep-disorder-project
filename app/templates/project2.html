@@ -18,7 +18,7 @@ Also:
 -->
 
 {% extends "layout.html" %}
-{% comment %} {% extends "shared_layout1.html" %} {% endcomment %}
+{#% extends "shared_layout1.html" %#}
 
 {% block title %}
     Project - Aftabby
@@ -30,6 +30,7 @@ Also:
 {% endblock %}
 
 {% block section %}
+
 <section id="introduction">
     <h2>1. Introduction</h2>
     <div>
@@ -47,7 +48,7 @@ Also:
         </ul>
         </p>
         <p>
-            To showcase the results, a web application was developed using Flask and deployed within a Docker container. All project files and detailed documentation are available on my <a href="https://github.com/Aftabby/ds-salary-project">GitHub profile</a>.
+            To showcase the results, a web application was developed using Flask and deployed within a Docker container. All project files and detailed documentation are available on my <a href="https://github.com/Aftabby/sleep-disorder-project">GitHub profile</a>.
         </p>
     </div>
 </section>
@@ -55,63 +56,45 @@ Also:
 <section id="dataset">
     <h2>2. Dataset</h2>
     <div>
-        <p>The dataset was obtained from <a href="https://www.kaggle.com/datasets/uciml/sleep-data">Kaggle</a>. 
-            It contains <strong> 374 </strong> rows and <strong> 13 </strong> columns. 
-            <br>
-            Below is a sample preview of the dataset:</p>
-        <div class="table-container code-block">
+        <p>
+            The Sleep Health and Lifestyle Dataset comprises <strong> 400 </strong> rows and <strong> 13 </strong> columns, 
+            covering a wide range of variables related to sleep and daily habits. 
+            It includes details such as gender, age, occupation, sleep duration, quality of sleep, 
+            physical activity level, stress levels, 
+            BMI category, blood pressure, heart rate, daily steps, and the presence or absence of sleep disorders.
+        </p>
+        <p>
+            Below is a sample preview of the dataset:
+        </p>
+        <div class="table-container">
             {{ context.sample_table | safe }}
         </div>
-    </div>
-</section>
-
-<section id="problem-statement">
-    <h2>2. Problem Statement</h2>
-    <div>
+        
         <p>
-            Understanding job market trends for <strong>Data Scientist</strong> roles is crucial for both job seekers and employers.
-        </p>
-        <p>
-            This project aims to address the following key questions:
-        </p>
+            <h4>Key Features of the Dataset:</h4>
         <ul>
-            <li><strong>Identifying Key Influencers:</strong> What factors
-                (such as, <mark>location</mark>, required <mark>skills</mark>, <mark>company size</mark>, and <mark>industry</mark> etc.)
-                influence salary estimates for Data Scientist roles?</li>
-            <li> <strong>Analyzing Salary Variations:</strong> How do <mark>company size</mark>, <mark>location</mark>, and <mark>industry</mark> correlate with job salary variations?</li>
-            <li>
-                <strong>Most Demanding Skill:</strong>
-                Which <strong>skills</strong> and <strong>qualifications</strong> are most frequently listed in high-paying job postings?
-            </li>
-            <li>
-                <strong>Predictive Modeling:</strong> Can we build a <em>predictive model</em> to estimate salaries based on job features?
-            </li>
-            <li>
-                <strong> Interactive Visualization:</strong> Visualing the data in an interactive manner using <code>Power BI</code> Dashboard.
+            <li>Comprehensive Sleep Metrics: Explore sleep duration, quality, and factors influencing sleep patterns.</li>
+            <li>Lifestyle Factors: Analyze physical activity levels, stress levels, and BMI categories.</li>
+            <li>Cardiovascular Health: Examine blood pressure and heart rate measurements.</li>
+            <li>Sleep Disorder Analysis: Identify the occurrence of sleep disorders such as Insomnia and Sleep Apnea.
+                <ul>
+                    <li>Insomnia: Difficulty falling or staying asleep.</li>
+                    <li>Sleep Apnea: Breathing interruptions during sleep.</li>
+                    <li>None: The individual does not exhibit any specific sleep disorder.</li>
             </li>
         </ul>
+        </p>
     </div>
 </section>
 
-<section id="data-table">
-    <h2>3. Data</h2>
-    <div>
-    <p>The dataset has been scraped from <a href="https://www.glassdoor.com/">Glassdoor</a> using <a href="https://selenium-python.readthedocs.io/">Selenium</a>. 
-        It contains <strong> {{ context.rows }} </strong> rows and <strong> {{ context.columns }} </strong> columns. 
-        <br>
-        Below is a sample preview of the dataset:</p>
-    <div class="table-container code-block">
-        {{ context.sample_table | safe }}
-    </div>
-</div>
-</section>
+
 
 <section id="methodology">
-    <h2>4. Methodology</h2>
+    <h2>3. Methodology</h2>
     <p>The following steps were taken to complete the project:</p>
     <ol>
-        <li>Data Scraping</li>
-        <li>Data Cleaning and Preprocessing</li>
+        <li>Data Cleaning</li>
+        <li>Data Preprocessing</li>
         <li>Exploratory Data Analysis (EDA)</li>
         <li>Power BI Visualization</li>
         <li>Model Building and Evaluation</li>
@@ -119,47 +102,104 @@ Also:
 </section>
 
 <section id="eda">
-    <h2>5. Exploratory Data Analysis (EDA)</h2>
-    <p>Some visual insights from the data:</p>
+    <h2>4. Exploratory Data Analysis (EDA)</h2>
+    <h4>Key Insight 1: Understanding the data by plotting its variables</h4>
     <div class="graph-container">
-        <div id="graph1" class="plot"></div>
-        <div id="graph2" class="plot"></div>
+        <div id="graph1" class="grid-plot"></div>
     </div>
+    <p>The number of males and females is almost equal, out of which majority of the people
+        have age between 30-45 years. Most of the people have sleep quality greater than 5 which means
+        there are getting sufficient sleep. Moreover, most of the people have normal
+        BMI whci directly relates 
+        with the distribution of sleep disorder which shows equal number of people 
+        with and without sleep disorder.
+    </p>
+
+    <h4>Key Insight 2: Understanding the correlation between individual variables</h4>
+
+    <div class="graph-container">
+        <div id="graph2" class="plot1"></div>
+    </div>
+    <p> <strong>Gender vs Sleep Disorder:</strong> Most of the males and females are not suffering from any sleep disorder. 
+        However females tend to have more sleep disorder as compared to males. 
+        The number of females suffering from Sleep Apnea is quite high as compared to males. 
+        But in contrast to that, 
+        greater number of males are suffering from Insomia as compared to females.
+    </p>
+
+    <div class="graph-container">
+        <div id="graph3" class="plot1"></div>
+    </div>
+    <p><strong>Effect of Occupation on Sleep Disorder:</strong> From the graph it is clear that the occupation 
+        has huge impact on the sleep disorder. Nurses are more subjected to have Sleep Apenea 
+        as compared to other occupations and very few of them have no sleep disorder. 
+        After nurses, the next most affected occupation is the Salesperson, which counts for 
+        the most suffering from Insomia followed by teachers. However there are some occupations 
+        where most of the people have very few instance of Sleep Apenea and Insomia 
+        such as Engineers, Doctors, Accountants, Lawyers. The Software ENgineers and Managers
+         are so less in number so I cannot say much about that, But the occupation Sales 
+        Representative has shown only Sleep Apenea and no Insomia or No sleep disorder.
+    </p>
+    <div class="graph-container">
+        <div id="graph4" class="plot1"></div>
+    </div>
+    <p><strong>BMI and Sleep Disorder:</strong> People with normal BMI are less likely to suffer from any sleep disorder. 
+        However, this is opposite in case of Overweight and Obese people. 
+        Overweight are more likely to suffer more from sleep disordera than Obese people.
+    </p>
+
 </section>
 
 <section id="dashboard">
-    <h2>6. Dashboard</h2>
+    <h2>5. Dashboard</h2>
     <p>Power BI Interactive Visual Dashboard</p>
     <p><em>*yet to be embedded*</em></p>
 </section>
 
 <section id="model">
-    <h2>7. Model Building</h2>
-    <p>The following machine learning models were used:</p>
+    <h2>6. Model Building</h2>
+    <p>For predictiong the sleep disorder thriugh classification algorithms the 
+        following machine learning models were used:
+    </p>
     <ul>
-        <li>Model 1: <strong>Linear Regression</strong></li>
-        <li>Model 2: <strong>Lasso Regression</strong></li>
-        <li>Model 3: <strong>Random Forest</strong></li>
+        <li>Decision Tree Classifier</li>
+        <li>Random Forest Classifier</li>
     </ul>
-    <p>The best-performing model was <strong>Random Forest</strong> with an accuracy of <strong>84.89%</strong>.</p>
+    <p>The best-performing model was <strong>Random Forest Classifier</strong> with a testing accuracy of <strong>89.38%</strong>.
+        <br>
+        The <strong>Decision Tree Classifier</strong> achieved a testing accuracy of <strong>86.73%</strong>.
+    </p>
+    <p>Below is a comparison of the two models:</p>
+
     <div class="graph-container">
-        <div id="graph3" class="model-plot"></div>
+        <div id="graph5" class="plot1"></div>
     </div>
+    <div class="graph-container">
+        <div id="graph6" class="plot1"></div>
+    </div>
+
 </section>
 
 <section id="conclusion" class="mb-5">
-    <h2>8. Conclusion</h2>
-    <p>This project provides a comprehensive analysis of data scientist job listings, offering valuable insights for both job seekers and employers. 
-        By leveraging data scraped from <a href="https://www.glassdoor.com/" target="_blank">Glassdoor</a>, the project identifies key factors influencing job offerings and salaries, analyzes job trends, and explores correlations between various job attributes. 
-        <br><br>The use of predictive modeling, particularly the Random Forest model, allows for accurate salary estimations based on job details. The interactive web application developed using <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> and deployed in a <a href="https://docs.docker.com/" target="_blank">Docker</a> container enables users to visualize and explore these insights effectively. 
-        </p>
+    <h2>7. Conclusion</h2>
+    <p>From the exploratory data analysis, I have concluded that the sleep orders depends upon 
+        three main factors of the patient, that are:
+        <ul>
+            <li>Gender</li>
+            <li>Occupation</li>
+            <li>BMI</li>
+        </ul>
+         The males have more instance of Insomia whereas femlaes have more instances of Sleep Apnea. 
+         In addition the that people with occupation such as nurses are more prone to sleep disorders.
+         The BMI of the patient also plays a vital role in the prediction of sleep disorders. 
+        The patients who are either Obese or overweight are more prone to sleep disorders. </p>
 
 </section>
 
 <section id="code" class="mb-5">
-    <h2>9. Code and Repository</h2>
-    <p>All project files and detailed documentation are available on the associated GitHub profile, providing a robust resource for further exploration and application. <a href="https://github.com/Aftabby/ds-salary-project" target="_blank">GitHub</a>.</p>
-    <a href="https://github.com/Aftabby/ds-salary-project" class="btn" target="_blank">View on GitHub</a>
+    <h2>8. Code and Repository</h2>
+    <p>All project files and detailed documentation are available on the associated GitHub profile, providing a robust resource for further exploration and application. <a href="https://github.com/Aftabby/sleep-disorder-project" target="_blank">GitHub</a>.</p>
+    <a href="https://github.com/Aftabby/sleep-disorder-project" class="btn" target="_blank">View on GitHub</a>
 </section>
 
 
